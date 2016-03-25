@@ -31,7 +31,7 @@ void increase_left(int amount) {
 }
 
 void increase_right(int amount) {
-  right_speed = bounded(right_speed+amount);
+  right_speed = bounded(right_speed-amount);
   motors.rightMotor(right_speed); // Turn CCW at motorPower of 10
 }
 
@@ -42,15 +42,15 @@ void increase_both(int amount) {
 
 
 void command(char c) {
-  int amount = 20;
+  int amount = 100;
   if(c == 'w') {
     increase_both(amount);
   } else if(c == 'a') {
-    increase_left(-amount);
+    increase_left(amount);
   } else if(c == 's') {
     increase_both(-amount);    
   } else if(c == 'd') {
-    increase_right(-amount);
+    increase_right(amount);
   } else if(c == 'x') {
     motors.brake();
   }
@@ -64,13 +64,16 @@ void setup()
 void loop()
 {
   command('w');
-  delay(500);
+delay(2000);
+  command('s');
+  command('s');
+  delay(2000);
   command('a');
-  delay(500);
-  command('s');
-  command('s');
-  delay(500);
+delay(2000);
   command('d');
-  delay(500);
+delay(2000);
+  command('x');
+delay(2000);
+
 }
 
