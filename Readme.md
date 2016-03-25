@@ -1,3 +1,18 @@
+Commands
+--------
+
+```
+w -> increase both wheels
+a -> decrease both wheels
+d -> increase right wheel
+s -> decrease right wheel
+x -> brake
+```
+
+
+Reading chars in Ruby
+---------------------
+
 ```ruby
 require 'io/console'
 
@@ -12,3 +27,4 @@ $stdin.raw {
   }
 }
 ```
+
